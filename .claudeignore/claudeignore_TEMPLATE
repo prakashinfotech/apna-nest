@@ -1,0 +1,96 @@
+# Files to ignore when Claude Code reads the codebase
+# This keeps context window lean and excludes secrets
+
+# Dependencies
+node_modules/
+.venv/
+venv/
+env/
+packages/
+vendor/
+bin/
+obj/
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.turbo/
+coverage/
+
+# Version control
+.git/
+.github/
+.gitignore
+
+# Environment / Secrets
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+.envrc
+
+# IDE
+.vscode/settings.json
+.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*.iml
+*.code-workspace
+.DS_Store
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Lock files (rarely useful to read)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+Gemfile.lock
+
+# Cache
+.cache/
+.eslintcache
+.prettierignore
+tsconfig.tsbuildinfo
+
+# Database backups
+*.sql
+*.bak
+*.dump
+
+# Media (too large)
+*.mp4
+*.mov
+*.webm
+*.png
+*.jpg (keep SVGs)
+
+# CI/CD
+.github/workflows/
+.gitlab-ci.yml
+.circleci/
+Jenkinsfile
+
+# Compiled
+*.o
+*.obj
+*.class
+*.jar
+
+# macOS
+.DS_Store
+Thumbs.db
+
+# Testing
+.nyc_output/
+*.lcov
+.mocha_output/

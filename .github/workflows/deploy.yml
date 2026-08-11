@@ -1,0 +1,33 @@
+name: CI/CD — claudeHousing
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore ./backend
+
+      - name: Build
+        run: dotnet build ./backend --no-restore --configuration Release
+
+      - name: Test
+        run: dotnet test ./backend --no-build --configuration Release
+
+      - name: Deploy backend to Render
+        run: curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
+
+      - name: Deploy frontend to Vercel
+        run: curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
