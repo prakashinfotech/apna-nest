@@ -9,7 +9,6 @@ A full-stack real estate platform for India — buy, sell, or rent properties wi
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
 [![.NET](https://img.shields.io/badge/.NET-8-purple?logo=dotnet)](https://dotnet.microsoft.com/)
 [![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?logo=supabase)](https://supabase.com/)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 </div>
 
@@ -29,6 +28,53 @@ A full-stack real estate platform for India — buy, sell, or rent properties wi
 | 📰 **News & Insights** | Real estate articles and market trends |
 | 👥 **Find Agents** | Verified real estate agents directory |
 | 📱 **Responsive** | Mobile-first design with bottom navigation bar |
+
+---
+
+## 🏗️ Architecture & Application Flow
+
+ApnaNest follows a layered full-stack architecture. The Next.js application handles the user experience, the ASP.NET Core API owns authentication and business rules, and Dapper repositories provide parameterized access to PostgreSQL.
+
+```mermaid
+flowchart LR
+    User["Buyer / Owner / Admin"] --> Web["Next.js 16 + React 19 Web App"]
+
+    subgraph Frontend["Frontend Layer"]
+        Web --> Pages["App Router Pages"]
+        Pages --> Store["Zustand Auth State"]
+        Pages --> Client["Typed API Client"]
+        Pages --> Maps["MapLibre Property Maps"]
+    end
+
+    Maps --> Tiles["Carto Map Tiles"]
+    Client -->|"HTTPS + JSON / JWT"| Controllers
+
+    subgraph Backend["ASP.NET Core 8 API"]
+        Controllers["API Controllers"] --> Services["Business Services"]
+        Services --> Repositories["Repository Layer"]
+        Auth["JWT Authentication + Role Checks"] -.-> Controllers
+        Middleware["Error-handling Middleware"] -.-> Controllers
+    end
+
+    Repositories --> Dapper["Dapper Queries"]
+    Dapper --> Database[("PostgreSQL / Supabase")]
+
+    Services -.->|"Optional email events"| Notify["Notification Service"]
+    Notify -.-> Gmail["Gmail SMTP"]
+
+    User -->|"Search and filter"| Pages
+    User -->|"View or save property"| Pages
+    User -->|"Post listing or send enquiry"| Controllers
+    Controllers -->|"Listings, leads and dashboard data"| Web
+```
+
+### Typical User Journey
+
+1. A visitor searches by city, locality, listing type, price, or property attributes.
+2. The frontend requests matching listings from the API and displays results with map context.
+3. After authentication, buyers can save properties and submit enquiries.
+4. Owners can publish listings and manage owner-scoped leads from the dashboard.
+5. Administrators can review platform data through role-protected endpoints.
 
 ---
 
@@ -59,6 +105,16 @@ Before you begin, ensure you have the following installed:
 | **Git** | Latest | [git-scm.com](https://git-scm.com/) |
 | **Supabase Account** | Free tier | [supabase.com](https://supabase.com/) |
 
+### Optional Service Accounts
+
+| Service | When It Is Needed |
+|---|---|
+| **Gmail App Password** | Only when running the optional notification service |
+| **Vercel** | Only when deploying the Next.js frontend |
+| **Render** | Only when deploying the ASP.NET Core backend |
+
+> Source-code review and local development do not require Vercel or Render accounts. Any PostgreSQL-compatible database can be used instead of Supabase.
+
 ---
 
 ## 🚀 Getting Started
@@ -66,8 +122,8 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_ORG/apnanest.git
-cd apnanest
+git clone https://github.com/prakashinfotech/apna-nest.git
+cd apna-nest
 ```
 
 ### 2. Set Up the Database (Supabase)
@@ -202,7 +258,7 @@ The backend exposes these API groups (see full docs at `/swagger`):
 | `POST` | `/api/properties` | Create property (auth required) |
 | `PUT` | `/api/properties/{id}` | Update property (auth required) |
 | `POST` | `/api/leads` | Submit enquiry lead |
-| `GET` | `/api/leads` | Get user's leads (auth required) |
+| `GET` | `/api/leads/my` | Get current owner's leads (auth required) |
 
 ---
 
@@ -227,6 +283,22 @@ dotnet test          # Run tests
 
 ---
 
+## ☁️ Optional Deployment
+
+This showcase repository has **no active GitHub Actions deployment workflow**, so normal pushes do not deploy the application or require cloud secrets.
+
+For teams that want deployment later:
+
+1. Create a Vercel project for `frontend/`.
+2. Create a Render web service for the backend Dockerfile.
+3. Configure the production database connection and JWT secret in the hosting platforms.
+4. Add `RENDER_DEPLOY_HOOK` and `VERCEL_DEPLOY_HOOK` as GitHub Actions secrets.
+5. Copy [`docs/deploy.example.yml`](docs/deploy.example.yml) into `.github/workflows/deploy.yml` and enable the desired trigger.
+
+The example uses a manual `workflow_dispatch` trigger by default to prevent accidental deployments.
+
+---
+
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -237,9 +309,9 @@ dotnet test          # Run tests
 
 ---
 
-## 📄 License
+## 📄 Repository Use
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This repository is maintained by Prakash Infotech as a project showcase. Add an approved `LICENSE` file before distributing or reusing the source under a public software license.
 
 ---
 
