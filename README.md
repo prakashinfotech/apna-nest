@@ -13,6 +13,13 @@ A full-stack real estate platform for India — buy, sell, or rent properties wi
 </div>
 
 ---
+## 🎯 The Problem
+
+Property discovery in India is slow and opaque. Buyers and renters wade through duplicate and unverified listings, pay brokerage on deals they effectively sourced themselves, and struggle to reach the actual property owner. Owners, in turn, lack a simple way to publish a listing and manage genuine enquiries in one place.
+
+## 💡 The Solution
+
+ApnaNest makes property discovery direct and transparent: verified listings with live map search, zero-brokerage options, direct owner contact, and a single dashboard where owners publish listings and manage leads. Built-in decision tools — EMI, affordability, rent receipts, and property valuation — help users act without leaving the platform.
 
 ## ✨ Features
 
