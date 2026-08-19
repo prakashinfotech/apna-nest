@@ -1,5 +1,3 @@
-<div align="center">
-
 # ApnaNest
 
 **Find the place where life happens.**
@@ -10,9 +8,10 @@ A full-stack real estate platform for India — buy, sell, or rent properties wi
 [![.NET](https://img.shields.io/badge/.NET-8-purple?logo=dotnet)](https://dotnet.microsoft.com/)
 [![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?logo=supabase)](https://supabase.com/)
 
-</div>
+![ApnaNest responsive property platform](docs/images/apnanest-platform-showcase.png)
 
 ---
+
 ## The Problem
 
 Property discovery in India is slow and opaque. Buyers and renters wade through duplicate and unverified listings, pay brokerage on deals they effectively sourced themselves, and struggle to reach the actual property owner. Owners, in turn, lack a simple way to publish a listing and manage genuine enquiries in one place.
@@ -35,6 +34,14 @@ ApnaNest makes property discovery direct and transparent: verified listings with
 | **News & Insights** | Real estate articles and market trends |
 | **Find Agents** | Verified real estate agents directory |
 | **Responsive** | Mobile-first design with bottom navigation bar |
+
+---
+
+## Project Preview
+
+![ApnaNest property search with interactive map](docs/images/apnanest-property-search-map.png)
+
+_Property discovery with listing filters, verified homes, pricing, and an interactive map view._
 
 ---
 
@@ -291,7 +298,7 @@ dotnet test          # Run tests
 ---
 ## Security
 
-- **Authentication:** JWT bearer tokens with BCrypt-hashed passwords and role-based access (buyer / owner / admin).
+- **Authentication:** JWT bearer tokens, salted password hashes, and role-based access (buyer / owner / admin).
 - **Data access:** All database access uses parameterized Dapper queries to guard against SQL injection.
 - **Secrets:** No secrets are committed. `appsettings.json` ships with placeholders; local development uses .NET User Secrets or environment variables, and `.env` / `appsettings.Development.json` are git-ignored.
 - **Reporting:** To report a vulnerability, please follow [SECURITY.md](SECURITY.md) rather than opening a public issue.
@@ -344,8 +351,4 @@ Licensed under the [MIT License](LICENSE). © 2026 Prakash Software Solutions Pv
 
 ---
 
-<div align="center">
-
 **Built with ❤️ for the Indian real estate market by [Prakash Software Solutions (PSSPL)](https://www.prakashinfotech.com)**
-
-</div>
