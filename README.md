@@ -4,7 +4,7 @@
 
 **Find the place where life happens.**
 
-A full-stack real estate platform for India — buy, sell, or rent properties with verified listings, zero brokerage options, and direct owner contact.
+A full-stack real estate platform for India — buy, sell, or rent properties with verified listings, zero-brokerage options, and direct contact with owners.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
 [![.NET](https://img.shields.io/badge/.NET-8-purple?logo=dotnet)](https://dotnet.microsoft.com/)
@@ -19,7 +19,7 @@ Property discovery in India is slow and opaque. Buyers and renters wade through 
 
 ## 💡 The Solution
 
-ApnaNest makes property discovery direct and transparent: verified listings with live map search, zero-brokerage options, direct owner contact, and a single dashboard where owners publish listings and manage leads. Built-in decision tools — EMI, affordability, rent receipts, and property valuation — help users act without leaving the platform.
+ApnaNest makes property discovery direct and transparent: verified listings with live map search, zero-brokerage options, direct contact with owners, and a single dashboard where owners publish listings and manage leads. Built-in decision tools — EMI, affordability, rent receipts, and property valuation — help users act without leaving the platform.
 
 ## ✨ Features
 
@@ -289,6 +289,14 @@ dotnet test          # Run tests
 ```
 
 ---
+## 🔒 Security
+
+- **Authentication:** JWT bearer tokens with BCrypt-hashed passwords and role-based access (buyer / owner / admin).
+- **Data access:** All database access uses parameterized Dapper queries to guard against SQL injection.
+- **Secrets:** No secrets are committed. `appsettings.json` ships with placeholders; local development uses .NET User Secrets or environment variables, and `.env` / `appsettings.Development.json` are git-ignored.
+- **Reporting:** To report a vulnerability, please follow [SECURITY.md](SECURITY.md) rather than opening a public issue.
+
+---
 
 ## ☁️ Optional Deployment
 
@@ -308,6 +316,8 @@ The example uses a manual `workflow_dispatch` trigger by default to prevent acci
 
 ## 🤝 Contributing
 
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for setup, quality checks, and the pull-request process.
+
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
@@ -316,14 +326,26 @@ The example uses a manual `workflow_dispatch` trigger by default to prevent acci
 
 ---
 
-## 📄 Repository Use
+## 📄 License
 
-This repository is maintained by Prakash Infotech as a project showcase. Add an approved `LICENSE` file before distributing or reusing the source under a public software license.
+Licensed under the [MIT License](LICENSE). © 2026 Prakash Software Solutions Pvt. Ltd.
+
+---
+
+## 🏢 About PSSPL
+
+**Prakash Software Solutions Pvt. Ltd. (PSSPL)** is an enterprise AI and software engineering company with 23+ years of experience, delivering solutions across Artificial Intelligence, Generative AI, Microsoft Azure, Data & AI, and enterprise application development (.NET, React, SQL, Cloud). ApnaNest is one of our engineering showcases, demonstrating end-to-end full-stack product delivery.
+
+## 📬 Contact
+
+- 🌐 Website: [www.prakashinfotech.com](https://www.prakashinfotech.com)
+- 💼 LinkedIn: [Prakash Software Solutions](https://www.linkedin.com/company/prakash-software-solutions-pvt-ltd)
+- ✉️ Email: info@prakashinfotech.com
 
 ---
 
 <div align="center">
 
-**Built with ❤️ for the Indian real estate market**
+**Built with ❤️ for the Indian real estate market by [Prakash Software Solutions (PSSPL)](https://www.prakashinfotech.com)**
 
 </div>
