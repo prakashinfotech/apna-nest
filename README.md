@@ -1,3 +1,5 @@
+![ApnaNest responsive property platform](docs/images/apnanest-platform-showcase.png)
+
 # ApnaNest
 
 **Find the place where life happens.**
@@ -7,8 +9,6 @@ A full-stack real estate platform for India — buy, sell, or rent properties wi
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
 [![.NET](https://img.shields.io/badge/.NET-8-purple?logo=dotnet)](https://dotnet.microsoft.com/)
 [![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?logo=supabase)](https://supabase.com/)
-
-![ApnaNest responsive property platform](docs/images/apnanest-platform-showcase.png)
 
 ---
 
@@ -42,6 +42,10 @@ ApnaNest makes property discovery direct and transparent: verified listings with
 ![ApnaNest property search with interactive map](docs/images/apnanest-property-search-map.png)
 
 _Property discovery with listing filters, verified homes, pricing, and an interactive map view._
+
+![ApnaNest property owner dashboard](docs/images/apnanest-owner-dashboard.png)
+
+_Owner workspace for monitoring listings, leads, views, response rates, and recent enquiries._
 
 ---
 
