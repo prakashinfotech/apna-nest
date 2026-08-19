@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏠 ApnaNest
+# ApnaNest
 
 **Find the place where life happens.**
 
@@ -13,32 +13,32 @@ A full-stack real estate platform for India — buy, sell, or rent properties wi
 </div>
 
 ---
-## 🎯 The Problem
+## The Problem
 
 Property discovery in India is slow and opaque. Buyers and renters wade through duplicate and unverified listings, pay brokerage on deals they effectively sourced themselves, and struggle to reach the actual property owner. Owners, in turn, lack a simple way to publish a listing and manage genuine enquiries in one place.
 
-## 💡 The Solution
+## The Solution
 
 ApnaNest makes property discovery direct and transparent: verified listings with live map search, zero-brokerage options, direct contact with owners, and a single dashboard where owners publish listings and manage leads. Built-in decision tools — EMI, affordability, rent receipts, and property valuation — help users act without leaving the platform.
 
-## ✨ Features
+## Features
 
 | Category | Details |
 |---|---|
-| 🔍 **Property Search** | Filter by type, price, BHK, furnishing, locality with live map view |
-| 🗺️ **Interactive Maps** | MapLibre GL + Carto Voyager tiles — no API key required |
-| 📝 **Post Property** | Multi-step wizard with image uploads, amenities, and RERA info |
-| 🔐 **Authentication** | JWT-based login/signup with buyer & owner roles |
-| 📊 **Dashboard** | Manage listings, view leads, saved properties, and account settings |
-| 🏗️ **New Projects** | Browse builder projects with RERA verification |
-| 🧮 **Tools** | EMI calculator, rent receipt generator, property valuation, affordability checker |
-| 📰 **News & Insights** | Real estate articles and market trends |
-| 👥 **Find Agents** | Verified real estate agents directory |
-| 📱 **Responsive** | Mobile-first design with bottom navigation bar |
+| **Property Search** | Filter by type, price, BHK, furnishing, locality with live map view |
+| **Interactive Maps** | MapLibre GL + Carto Voyager tiles — no API key required |
+| **Post Property** | Multi-step wizard with image uploads, amenities, and RERA info |
+| **Authentication** | JWT-based login/signup with buyer & owner roles |
+| **Dashboard** | Manage listings, view leads, saved properties, and account settings |
+| **New Projects** | Browse builder projects with RERA verification |
+| **Tools** | EMI calculator, rent receipt generator, property valuation, affordability checker |
+| **News & Insights** | Real estate articles and market trends |
+| **Find Agents** | Verified real estate agents directory |
+| **Responsive** | Mobile-first design with bottom navigation bar |
 
 ---
 
-## 🏗️ Architecture & Application Flow
+## Architecture & Application Flow
 
 ApnaNest follows a layered full-stack architecture. The Next.js application handles the user experience, the ASP.NET Core API owns authentication and business rules, and Dapper repositories provide parameterized access to PostgreSQL.
 
@@ -85,7 +85,7 @@ flowchart LR
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -101,7 +101,7 @@ flowchart LR
 
 ---
 
-## 📋 Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have the following installed:
 
@@ -124,7 +124,7 @@ Before you begin, ensure you have the following installed:
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the Repository
 
@@ -160,7 +160,7 @@ Update the connection string in `appsettings.json` (for local dev only — **nev
 }
 ```
 
-> 💡 **Tip:** Use [.NET User Secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets) for local development:
+> **Tip:** Use [.NET User Secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets) for local development:
 > ```bash
 > dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Host=..."
 > dotnet user-secrets set "JwtSettings:Secret" "your_secret_key"
@@ -201,7 +201,7 @@ npm run dev
 
 The frontend will start at `http://localhost:3000`.
 
-> ⚠️ **Note:** `--legacy-peer-deps` is required due to some peer dependency conflicts between React 19 and older Radix UI packages.
+> **Note:** `--legacy-peer-deps` is required due to some peer dependency conflicts between React 19 and older Radix UI packages.
 
 ---
 
@@ -252,7 +252,7 @@ apnanest/
 
 ---
 
-## 🔌 API Endpoints
+## API Endpoints
 
 The backend exposes these API groups (see full docs at `/swagger`):
 
@@ -269,7 +269,7 @@ The backend exposes these API groups (see full docs at `/swagger`):
 
 ---
 
-## 🧪 Development
+## Development
 
 ### Frontend Commands
 
@@ -289,7 +289,7 @@ dotnet test          # Run tests
 ```
 
 ---
-## 🔒 Security
+## Security
 
 - **Authentication:** JWT bearer tokens with BCrypt-hashed passwords and role-based access (buyer / owner / admin).
 - **Data access:** All database access uses parameterized Dapper queries to guard against SQL injection.
@@ -298,7 +298,7 @@ dotnet test          # Run tests
 
 ---
 
-## ☁️ Optional Deployment
+## Optional Deployment
 
 This showcase repository has **no active GitHub Actions deployment workflow**, so normal pushes do not deploy the application or require cloud secrets.
 
@@ -314,7 +314,7 @@ The example uses a manual `workflow_dispatch` trigger by default to prevent acci
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for setup, quality checks, and the pull-request process.
 
@@ -326,13 +326,13 @@ Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for se
 
 ---
 
-## 📄 License
+## License
 
 Licensed under the [MIT License](LICENSE). © 2026 Prakash Software Solutions Pvt. Ltd.
 
 ---
 
-## 🏢 About PSSPL
+## About PSSPL
 
 **Prakash Software Solutions Pvt. Ltd. (PSSPL)** is an enterprise AI and software engineering company with 23+ years of experience, delivering solutions across Artificial Intelligence, Generative AI, Microsoft Azure, Data & AI, and enterprise application development (.NET, React, SQL, Cloud). ApnaNest is one of our engineering showcases, demonstrating end-to-end full-stack product delivery.
 
