@@ -345,7 +345,7 @@ Licensed under the [MIT License](LICENSE). © 2026 Prakash Software Solutions Pv
 
 ## About PSSPL
 
-**Prakash Software Solutions Pvt. Ltd. (PSSPL)** is an enterprise AI and software engineering company with 23+ years of experience, delivering solutions across Artificial Intelligence, Generative AI, Microsoft Azure, Data & AI, and enterprise application development (.NET, React, SQL, Cloud). ApnaNest is one of our engineering showcases, demonstrating end-to-end full-stack product delivery.
+**Prakash Software Solutions Pvt. Ltd. (PSSPL)** is an enterprise AI and software engineering company with 26+ years of experience, delivering solutions across Artificial Intelligence, Generative AI, Microsoft Azure, Data & AI, and enterprise application development (.NET, React, SQL, Cloud). ApnaNest is one of our engineering showcases, demonstrating end-to-end full-stack product delivery.
 
 ## 📬 Contact
 
