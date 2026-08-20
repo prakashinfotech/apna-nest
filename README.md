@@ -4,7 +4,9 @@
 
 **Find the place where life happens.**
 
-A full-stack real estate platform for India — buy, sell, or rent properties with verified listings, zero-brokerage options, and direct contact with owners.
+ApnaNest — a modern real estate platform for India for property discovery, listings, buying, selling & renting. Zero-brokerage, verified listings, map search & owner dashboards. Built by Prakash Software Solutions (PSSPL) with Next.js 16, React 19, .NET 8 & Supabase.
+
+**Website:** [https://www.prakashinfotech.com](https://www.prakashinfotech.com)
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
 [![.NET](https://img.shields.io/badge/.NET-8-purple?logo=dotnet)](https://dotnet.microsoft.com/)
