@@ -309,6 +309,8 @@ dotnet test          # Run tests
 - **Secrets:** No secrets are committed. `appsettings.json` ships with placeholders; local development uses .NET User Secrets or environment variables, and `.env` / `appsettings.Development.json` are git-ignored.
 - **Reporting:** To report a vulnerability, please follow [SECURITY.md](SECURITY.md) rather than opening a public issue.
 
+Built and maintained by **Prakash Software Solutions Pvt. Ltd. (PSSPL)**. This repository contains no production credentials; all example values and mock accounts are intended for local development only and must be replaced or disabled before deployment.
+
 ---
 
 ## Optional Deployment
