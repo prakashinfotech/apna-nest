@@ -1,0 +1,49 @@
+# ── Node / Frontend ──────────────────────────────────────────
+node_modules/
+.next/
+out/
+dist/
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── .NET / Backend ───────────────────────────────────────────
+**/bin/
+**/obj/
+*.user
+*.suo
+.vs/
+TestResults/
+appsettings.Development.json
+
+# ── Environment variables (NEVER commit these) ───────────────
+.env
+.env.*
+!.env.example
+
+# ── OS / Editor ──────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.claude/settings.json
+.claude/settings.local.json
+.claude/instrucations/
+
+# ── Logs ─────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Build / Coverage ─────────────────────────────────────────
+coverage/
+*.lcov
+
+# ── MinIO / local storage artifacts ──────────────────────────
+minio-data/
+
+# ── Development / Scratch scripts ────────────────────────────
+db-*.js
+scratch/
