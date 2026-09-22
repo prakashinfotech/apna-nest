@@ -15,7 +15,7 @@ public class CitiesController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        const string sql = "SELECT id, name, slug, latitude, longitude FROM cities WHERE is_active = true ORDER BY name";
+        const string sql = "SELECT id, name, slug FROM cities WHERE is_active = true ORDER BY name";
         using var c = _db.CreateConnection();
         return Ok(await c.QueryAsync(sql));
     }
@@ -24,7 +24,7 @@ public class CitiesController : ControllerBase
     [HttpGet("{slug}")]
     public async Task<IActionResult> GetBySlug(string slug)
     {
-        const string sql = "SELECT id, name, slug, latitude, longitude FROM cities WHERE slug = @slug AND is_active = true";
+        const string sql = "SELECT id, name, slug FROM cities WHERE slug = @slug AND is_active = true";
         using var c = _db.CreateConnection();
         var city = await c.QuerySingleOrDefaultAsync(sql, new { slug });
         return city == null ? NotFound() : Ok(city);

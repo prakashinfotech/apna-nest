@@ -70,10 +70,10 @@ public class PropertyRepository : IPropertyRepository
         property.Id = Guid.NewGuid();
         property.CreatedAt = property.UpdatedAt = DateTime.UtcNow;
         const string sql = @"INSERT INTO properties
-            (id, owner_id, city_id, locality_id, address_line, latitude, longitude, pin_code,
+            (id, owner_id, city_id, locality_id, address_line, pin_code,
              property_type_id, listing_intent_id, title, description, bhk, bathrooms, area_sqft,
              price, is_rera_verified, is_zero_brokerage, is_active, is_featured, created_at, updated_at)
-            VALUES(@Id, @OwnerId, @CityId, @LocalityId, @AddressLine, @Latitude, @Longitude, @PinCode,
+            VALUES(@Id, @OwnerId, @CityId, @LocalityId, @AddressLine, @PinCode,
              @PropertyTypeId, @ListingIntentId, @Title, @Description, @Bhk, @Bathrooms, @AreaSqft,
              @Price, @IsReraVerified, @IsZeroBrokerage, @IsActive, @IsFeatured, @CreatedAt, @UpdatedAt)
             RETURNING id;";
@@ -96,7 +96,7 @@ public class PropertyRepository : IPropertyRepository
         property.UpdatedAt = DateTime.UtcNow;
         const string sql = @"UPDATE properties SET
             city_id=@CityId, locality_id=@LocalityId, address_line=@AddressLine,
-            latitude=@Latitude, longitude=@Longitude, pin_code=@PinCode,
+            pin_code=@PinCode,
             property_type_id=@PropertyTypeId, listing_intent_id=@ListingIntentId,
             title=@Title, description=@Description, bhk=@Bhk, bathrooms=@Bathrooms,
             area_sqft=@AreaSqft, price=@Price, is_rera_verified=@IsReraVerified,

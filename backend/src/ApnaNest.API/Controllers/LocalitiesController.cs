@@ -30,7 +30,7 @@ public class LocalitiesController : ControllerBase
         }
 
         var sql = $@"
-            SELECT l.id, l.name, l.slug, l.latitude, l.longitude, l.pin_code,
+            SELECT l.id, l.name, l.slug, l.pin_code,
                    l.description, l.avg_price_sqft,
                    c.id AS city_id, c.name AS city_name, c.slug AS city_slug,
                    (SELECT COUNT(*) FROM properties pr WHERE pr.locality_id = l.id AND pr.is_active = true) AS property_count
@@ -48,7 +48,7 @@ public class LocalitiesController : ControllerBase
     public async Task<IActionResult> GetBySlug(string slug, [FromQuery] string? citySlug)
     {
         const string sql = @"
-            SELECT l.id, l.name, l.slug, l.latitude, l.longitude, l.pin_code,
+            SELECT l.id, l.name, l.slug, l.pin_code,
                    l.description, l.avg_price_sqft,
                    c.id AS city_id, c.name AS city_name, c.slug AS city_slug,
                    (SELECT COUNT(*) FROM properties pr WHERE pr.locality_id = l.id AND pr.is_active = true) AS property_count

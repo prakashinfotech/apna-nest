@@ -7,8 +7,7 @@ public class Property
     public Guid CityId { get; set; }
     public Guid LocalityId { get; set; }
     public string? AddressLine { get; set; }
-    public decimal? Latitude { get; set; }
-    public decimal? Longitude { get; set; }
+
     public string? PinCode { get; set; }
     public short PropertyTypeId { get; set; }
     public short ListingIntentId { get; set; }
