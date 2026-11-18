@@ -1,0 +1,46 @@
+services:
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    container_name: apnanest-backend
+    restart: unless-stopped
+
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
+      ASPNETCORE_URLS: http://+:5000
+
+      # Supabase PostgreSQL
+      ConnectionStrings__DefaultConnection: ${SUPABASE_DB_CONNECTION}
+
+      # JWT
+      JwtSettings__Secret: ${JWT_SECRET}
+
+      # CORS
+      FRONTEND_URLS: ${FRONTEND_URLS}
+
+    ports:
+      - "${BACKEND_PORT:-5020}:5000"
+
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+
+    container_name: apnanest-frontend
+    restart: unless-stopped
+
+    environment:
+      NODE_ENV: production
+
+    ports:
+      - "${FRONTEND_PORT:-3020}:3000"
+
+    depends_on:
+      - backend

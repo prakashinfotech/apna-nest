@@ -1,19 +1,44 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /app
+# syntax=docker/dockerfile:1
 
-# Copy everything from the backend directory
+# ============================================================
+# BUILD STAGE
+# ============================================================
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+
+WORKDIR /src
+
+# Copy complete backend source
 COPY . .
 
-# Restore and publish the API project
-RUN dotnet restore
-RUN dotnet publish src/ApnaNest.API/ApnaNest.API.csproj -c Release -o out
+# Restore dependencies
+RUN dotnet restore ./src/ApnaNest.API/ApnaNest.API.csproj
 
-# Runtime stage
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+# Build and publish
+RUN dotnet publish \
+    ./src/ApnaNest.API/ApnaNest.API.csproj \
+    -c Release \
+    -o /app/publish \
+    --no-restore
+
+
+# ============================================================
+# RUNTIME STAGE
+# ============================================================
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+
 WORKDIR /app
-COPY --from=build /app/out .
 
-# .NET 9 default port is 8080. Render will map its public port to this.
-ENV ASPNETCORE_HTTP_PORTS=8080
+# Install Kerberos/GSSAPI runtime library
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends libgssapi-krb5-2 \
+    && rm -rf /var/lib/apt/lists/*
 
+ENV ASPNETCORE_URLS=http://+:5000
+
+EXPOSE 5000
+
+# Copy published application
+COPY --from=build /app/publish .
+
+# Start ASP.NET Core application
 ENTRYPOINT ["dotnet", "ApnaNest.API.dll"]
