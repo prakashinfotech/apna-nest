@@ -81,26 +81,21 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ILeadService, LeadService>();
 
 // Configure CORS
+var frontendUrls = builder.Configuration["FRONTEND_URLS"]?
+    .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+    ?? Array.Empty<string>();
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend",
-        policy => policy
-            .SetIsOriginAllowed(origin =>
-            {
-                var uri = new Uri(origin);
-                // Allow localhost (any port) for local dev
-                if (uri.Host == "localhost" || uri.Host == "127.0.0.1")
-                    return true;
-                // Allow all Vercel preview and production deployments
-                if (uri.Host.EndsWith(".vercel.app"))
-                    return true;
-                return false;
-            })
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy
+            .WithOrigins(frontendUrls)
             .AllowAnyHeader()
             .AllowAnyMethod()
-            .AllowCredentials());
+            .AllowCredentials();
+    });
 });
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
