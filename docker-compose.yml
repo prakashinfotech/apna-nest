@@ -36,6 +36,13 @@ services:
     container_name: apnanest-frontend
     restart: unless-stopped
 
+    # Server-side rendering calls the public API URL. From inside the server that
+    # address is not reachable (no NAT hairpin), so every page waited for a 10 s connect
+    # timeout. Point the API hostname at the Docker host, where nginx serves it with its
+    # real certificate.
+    extra_hosts:
+      - "apna-nest-api.prakashsoftwares.com:host-gateway"
+
     environment:
       NODE_ENV: production
 
